@@ -4,6 +4,8 @@ A practical workforce management tool for Saudi Arabia.
 """
 
 from dataclasses import dataclass
+import csv
+from pathlib import Path
 
 
 @dataclass
@@ -21,6 +23,28 @@ class Worker:
         return self.hourly_rate * self.working_hours
 
 
+def load_workers_from_csv(csv_path: str) -> list[Worker]:
+    workers = []
+
+    with open(csv_path, mode="r", encoding="utf-8-sig", newline="") as file:
+        reader = csv.DictReader(file)
+
+        for row in reader:
+            workers.append(
+                Worker(
+                    worker_id=row["Worker ID"],
+                    name=row["Name"],
+                    job_title=row["Job Title"],
+                    project=row["Project"],
+                    hourly_rate=float(row["Hourly Rate (SAR)"]),
+                    working_hours=float(row["Working Hours"]),
+                    status=row["Status"],
+                )
+            )
+
+    return workers
+
+
 def show_worker(worker: Worker) -> None:
     print("\n--- Worker Details ---")
     print(f"Worker ID    : {worker.worker_id}")
@@ -34,11 +58,10 @@ def show_worker(worker: Worker) -> None:
 
 
 def main() -> None:
-    workers = [
-        Worker("SWM-001", "Sample Worker 1", "Electrician", "Project A", 18.00, 208.00),
-        Worker("SWM-002", "Sample Worker 2", "Carpenter", "Project A", 18.00, 208.00),
-        Worker("SWM-003", "Sample Worker 3", "Mason", "Project B", 18.00, 208.00),
-    ]
+    project_root = Path(__file__).resolve().parent.parent
+    csv_path = project_root / "workforce_sample.csv"
+
+    workers = load_workers_from_csv(str(csv_path))
 
     print("🇸🇦 Saudi Workforce Management")
     print("=" * 40)
