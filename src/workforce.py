@@ -1,6 +1,6 @@
 """
 Saudi Workforce Management
-A simple workforce management tool for construction and manpower operations.
+A practical workforce management tool for Saudi Arabia.
 """
 
 from dataclasses import dataclass
@@ -35,30 +35,9 @@ def show_worker(worker: Worker) -> None:
 
 def main() -> None:
     workers = [
-        Worker(
-            "SWM-001",
-            "Sample Worker 1",
-            "Electrician",
-            "Project A",
-            18.00,
-            208.00,
-        ),
-        Worker(
-            "SWM-002",
-            "Sample Worker 2",
-            "Carpenter",
-            "Project A",
-            18.00,
-            208.00,
-        ),
-        Worker(
-            "SWM-003",
-            "Sample Worker 3",
-            "Mason",
-            "Project B",
-            18.00,
-            208.00,
-        ),
+        Worker("SWM-001", "Sample Worker 1", "Electrician", "Project A", 18.00, 208.00),
+        Worker("SWM-002", "Sample Worker 2", "Carpenter", "Project A", 18.00, 208.00),
+        Worker("SWM-003", "Sample Worker 3", "Mason", "Project B", 18.00, 208.00),
     ]
 
     print("🇸🇦 Saudi Workforce Management")
