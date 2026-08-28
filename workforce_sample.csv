@@ -1,0 +1,6 @@
+Worker ID,Name,Job Title,Project,Hourly Rate (SAR),Working Hours,Status
+SWM-001,Sample Worker 1,Electrician,Project A,18,208,Active
+SWM-002,Sample Worker 2,Carpenter,Project A,18,208,Active
+SWM-003,Sample Worker 3,Mason,Project B,18,208,Active
+SWM-004,Sample Worker 4,Scaffolder,Project B,18,208,Mobilizing
+SWM-005,Sample Worker 5,Labor,Civil Project,14,208,Active
